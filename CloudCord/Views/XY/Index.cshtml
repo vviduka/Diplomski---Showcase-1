@@ -1,0 +1,44 @@
+﻿@model IPagedList<XYListViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="colmask leftmenu">
+    <div class="colleft">
+        <div class="col1">
+            <div>
+                <div>
+                   <h3>@Html.ActionLink("Calculate New", "Create")</h3>
+                </div>
+
+                @if( Model.Count() == 0) {
+                    <p>There are no calculations</p>
+                }
+                else{
+                    
+                    <div>
+                        <b>Filter:</b>
+                        @Html.DropDownList("myList",null,new{@id = "filterParam" })
+                    </div> 
+                    <div id="Select filter parametar:" class="group"></div>
+                    <div id="Tag" class="group">@Html.Partial("_tagFormXY")</div>
+                    <div id="Date" class="group">@Html.Partial("_dateForm")</div>
+
+                    <div id="calculationList">
+                    @Html.Partial("_XYCalculations", Model)
+                    </div>
+                }
+            </div>
+        </div>
+        @Html.Partial("_MasterCalculate")
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/filterParametar.js")
+    @Scripts.Render("~/Scripts/datePicker.js")
+}
+
+

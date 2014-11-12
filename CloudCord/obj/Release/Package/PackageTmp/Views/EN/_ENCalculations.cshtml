@@ -1,0 +1,61 @@
+﻿@model IPagedList<ENListViewModel>
+
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayName("Tag")
+        </th>
+        <th>
+            @Html.DisplayName("E")
+        </th>
+        <th>
+            @Html.DisplayName("N")
+        </th>
+        <th>
+            @Html.DisplayName("X")
+        </th>
+        <th>
+            @Html.DisplayName("Y")
+        </th>
+        <th>
+            @Html.DisplayName("Date of creation")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tagIz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eistok)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nsjever)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.xp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.yp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdIz)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.izracunId })
+            </td>
+        </tr>
+    }
+</table>
+
+
+<div class="pagedList" data-cc-target="#calculationList">
+    @Html.PagedListPager(Model,page => Url.Action("Index", new { page }),
+    PagedListRenderOptions.MinimalWithItemCountText)
+</div>
+
+

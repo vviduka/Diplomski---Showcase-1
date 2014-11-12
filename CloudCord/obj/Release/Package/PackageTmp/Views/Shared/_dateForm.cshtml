@@ -1,0 +1,14 @@
+﻿@using(Html.BeginForm(null, null, FormMethod.Get))
+{
+    <fieldset>
+        <legend>Search by Date:</legend>
+        @Html.Label("From:")
+        @Html.TextBox("date1", null, new {@class="datepicker" })
+        @Html.Label("To:")
+        @Html.TextBox("date2", null, new {@class="datepicker" })
+     <p>
+        <input type="submit" value="Search by date" />
+     </p>
+    </fieldset>
+}
+

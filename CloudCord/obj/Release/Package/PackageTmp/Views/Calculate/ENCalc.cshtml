@@ -1,0 +1,50 @@
+﻿@model CloudCord.Models.ENconversion
+
+@{
+    ViewBag.Title = "E-N calculation";
+}
+
+<h2>ENCalc</h2>
+
+<div class="colmask leftmenu">
+    <div class="colleft">
+        <div class="col1">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                
+                <fieldset>
+                    <legend>ENconversion</legend>
+
+                    <div class="editor-label">
+                        E coordinate
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Eistok, new { id = "Epassed" })
+                        @Html.ValidationMessageFor(model => model.Eistok)
+                    </div>
+
+                    <div class="editor-label">
+                        N coordinate
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Nsjever, new { id = "Npassed" })
+                        @Html.ValidationMessageFor(model => model.Nsjever)
+                    </div>
+
+                    <p>
+                        <input type="submit" value="Calculate" />
+                    </p>
+                </fieldset>
+            }
+        </div>
+        @Html.Partial("_MasterCalculate")
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

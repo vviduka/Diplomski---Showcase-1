@@ -1,0 +1,73 @@
+﻿@model CloudCord.Models.ENconversion
+@{
+    ViewBag.Title = "Calculate";
+}
+
+<h2>Calculate</h2>
+
+@using (Html.BeginForm("CreateOption","EN",FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.createdIz)
+    <fieldset>
+        <legend>E-N conversion of coordinates </legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tagIz)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.tagIz)
+            @Html.ValidationMessageFor(model => model.tagIz)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Eistok)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Eistok)
+            @Html.ValidationMessageFor(model => model.Eistok)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nsjever)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nsjever)
+            @Html.ValidationMessageFor(model => model.Nsjever)
+        </div>
+
+        <p>
+            <input type="submit" name="submitButton" value="Calculate" />
+        </p>
+         @if(Model.xp.HasValue){
+        <div class="editor-label">
+            @Html.LabelFor(model => model.xp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.xp)
+            @Html.ValidationMessageFor(model => model.xp)
+        </div>
+       
+        <div class="editor-label">
+            @Html.LabelFor(model => model.yp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.yp)
+            @Html.ValidationMessageFor(model => model.yp)
+        </div>
+        
+        <p>
+            <input type="submit" name="submitButton" value="Save" />
+        </p>
+         }
+    </fieldset>
+   
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/jQuerryDecimalFix.js")
+}

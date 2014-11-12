@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Intro";
+}
+
+<h2>Intro</h2>
+<div class="colmask leftmenu">
+	<div class="colleft">
+        <div class="col1">
+            
+            <div>
+
+                <h2>Introduction</h2>
+                <p>    
+                    Numeric data transformation from "Gauss-Kruger" projection meridian zones is defined 
+                    from coordinates x and y in two dimensional space.
+                    In "HTRS96/TM" ,cartographic space is defined from numerical  data of coordinates "E" and "N"
+                    in two dimensional space.
+                </p>
+
+                <p>
+                    Transformation between those two projections are carried out on the basis of average geographical
+                    coordinates "φ" and "λ".
+                </p>
+
+                <p>
+                    So, final transformation would look like this: y,x => λ,φ  => E,N
+                </p>
+
+                <p>
+                    On Croatian teritory there are two coordinate view's in "Gauss Kruger" projection of meridian zones.
+               </p>
+                    <ul>
+                        <li>
+                            <p>Fifth coordinate system </p>
+                            <p>Origin of coordinate axis in: x = 0, in equatorial level φ = 0(degrees) </p>
+                            <p>y = 5 500 000  (equivalent of y = 0), in equatorial level λ = 15 (degrees)</p>
+                        </li>
+
+                        <li>
+                            <p>Sixth coordinate system</p>
+                            <p>with x = 0, and in equatorial level φ = 0(degrees) </p>
+                            <p>and y= 6 500 000 = y = 0, in equatroial level λ = 18 (degrees)</p>
+                        </li>
+                    </ul>
+                
+                <p> 
+                    Defined width of zone would be: ± 1˚ 30' from greenwich meridian and  λ = 15 (degrees)
+                    or  λ = 18 (degrees);
+                </p>
+
+                <p>
+                    Coordinate system of "HTRS96/TM" cartographic teritory covers whole teritory of Republic of Croatia with axis origins:
+                    N = 0 [m] , and in equatorial level  φ = 0 ˚
+                    E = 500 000 = 0 [m], and in equatorial level λ = 16˚ 30' 
+                </p>
+                <p>
+                    Defined width of zone would be ± 3˚, and from greenwich meridian λ = 16˚ 30' 
+                </p>
+                <p>
+                    Precision of algorithm used in this software is 10 E-15.
+                </p>
+
+                <a href="~/Images/transformation.jpg"><img HEIGHT=240 WIDTH=160 src="~/Images/transformation.jpg" /></a>
+
+                <h3>Important</h3>
+
+                <ul>
+                    <li>
+                        Limitations of calculating coordinates are not hard defined from user input boxes.
+                        We presume that user of this software is aware of teritorial limits of Republic of Croatia.
+                    </li>
+                    <li>
+                        So to be exactly defined boarders of what coordinates can be entered in algorithm that proviedes correct calculation
+                        we will show here:
+                    </li>
+                    <li>
+                        Area of y coordinate:<br />
+                        <b> y = < 5 380 000 - 5 620 000 > </b> for fifth coordinate system in "Gauss Kruger".<br />
+                        <b> y = < 6 380 000 - 6 520 000 > </b>for sixth coordinate system in "Gauss Kruger".<br />
+                    </li>
+                    <li>
+                        Area of x coordinate:<br />
+                        <b> x = < 4 600 000 - 5 200 000 > </b>
+                    </li>
+                    <li>
+                        Area of E coordinate:<br />
+                        <b>E = < 260 000 - 740 000</b>
+                    </li>
+                    <li>
+                         Area of x coordinate:<br />
+                        <b> N = < 4 600 000 - 5 200 000 > </b>
+                    </li>
+                </ul>
+
+
+
+            </div>
+        </div>   
+            @Html.Partial("_MasterCalculate")
+    </div>
+</div>
